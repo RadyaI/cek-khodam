@@ -1,19 +1,19 @@
 <template>
     <div>
-        
+
         <!-- Header -->
         <div class="header">
             <h1>Cek Khodam rorrr</h1>
-            <p>By <a href="https://radya.fun" target="_blank">Radya </a> & <a href="https://aryaem.vercel.app"
-                    target="_blank">Arya </a></p>
+            <p>By <a href="https://radya.fun" target="_blank">Radyaif </a> & <a href="https://aryaem.vercel.app"
+                    target="_blank">Aryaem </a></p>
         </div>
 
         <div class="input">
             <h2>Masukkan nama kamu</h2>
-            <form method="post" action="#">
+            <form>
                 <div class="wrap">
                     <div class="form-group">
-                        <input type="text" id="name" name="name">
+                        <input type="text" id="name" name="name" autocomplete="off">
                     </div>
                     <div class="form-actions">
                         <button type="submit">Cek</button>
@@ -140,6 +140,7 @@
     background: linear-gradient(144deg, #a855f7, #5b42f3 50%, #00ddeb);
     color: white;
     padding: 0.5rem 3rem;
+    margin-right: 15px;
     font-weight: bold;
     font-size: 10px;
     border-radius: 0.375rem;
@@ -150,6 +151,21 @@
 
 .form-actions button:hover {
     opacity: 0.8;
+}
+
+@media only screen and (max-width:700px) {
+    .input {
+        width: 95%;
+        height: fit-content;
+    }
+
+    .form-actions button {
+        margin-left: 10px;
+    }
+
+    .input h2{
+        font-size: 20px;
+    }
 }
 </style>
 
