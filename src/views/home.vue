@@ -10,23 +10,13 @@
         <div class="input">
             <h2>Masukkan nama kamu</h2>
             <form method="post" action="#">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email">
-                </div>
-
-                <div class="form-group">
-                    <label for="bio">Bio</label>
-                    <textarea id="bio" name="bio" rows="3"></textarea>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit">Update Profile</button>
+                <div class="wrap">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit">Update Profile</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -110,33 +100,30 @@
 }
 
 .input h2 {
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 2px;
     color: #fff;
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
-.form-group {
-    margin-bottom: 1rem;
+.wrap {
+    display: flex;
 }
 
-.form-group label {
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #6b7280;
+.form-group {
+    margin-bottom: 1rem;
 }
 
 .form-group input,
 .form-group textarea {
     margin-top: 0.25rem;
-    padding: 0.5rem; 
+    padding: 0.5rem;
     width: 100%;
     border: 1px solid #d1d5db;
     border-radius: 0.375rem;
-} 
- 
+}
+
 .form-actions {
     display: flex;
     justify-content: flex-end;
