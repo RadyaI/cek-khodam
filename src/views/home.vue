@@ -15,7 +15,7 @@
                         <input type="text" id="name" name="name">
                     </div>
                     <div class="form-actions">
-                        <button type="submit">Update Profile</button>
+                        <button type="submit">Cek</button>
                     </div>
                 </div>
             </form>
