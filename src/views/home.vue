@@ -8,18 +8,42 @@
                     target="_blank">Aryaem </a></p>
         </div>
 
-        <div class="input">
-            <h2>Masukkan nama kamu</h2>
-            <form>
-                <div class="wrap">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" autocomplete="off">
+        <div class="input animate__animated animate__bounceIn">
+            <section v-if="!state.showKhodam">
+                <h2>Masukkan nama kamu</h2>
+                <form @submit.prevent="submit">
+                    <div class="wrap">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" autocomplete="off" v-model="state.isName">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit">Cek</button>
+                        </div>
                     </div>
-                    <div class="form-actions">
-                        <button type="submit">Cek</button>
+                    <small v-if="state.warning" class="name_warning">Diisi dulu namanya dong</small>
+                </form>
+            </section>
+
+            <section v-id="state.showKhodam">
+                <div class="loading">
+                    <section v-if="state.loading">
+                        <h2 class="animate__animated animate__bounceIn">{{ state.loadingText }}</h2>
+                        <div class="🤚">
+                            <div class="👉"></div>
+                            <div class="👉"></div>
+                            <div class="👉"></div>
+                            <div class="👉"></div>
+                            <div class="🌴"></div>
+                            <div class="👍"></div>
+                        </div>
+                    </section>
+                    <h5 v-if="!state.loading && state.showKhodam">Khodam {{ state.isName }} adalah...</h5> <br>
+                    <h2 v-if="!state.loading && state.showKhodam"> {{ state.currentKhodam }} </h2>
+                    <div class="center">
+                        <button v-if="!state.loading && state.showKhodam" class="reset-btn" @click="reset">Cari nama lain</button>
                     </div>
                 </div>
-            </form>
+            </section>
         </div>
 
     </div>
@@ -153,6 +177,214 @@
     opacity: 0.8;
 }
 
+.name_warning {
+    color: yellow;
+}
+
+.loading section {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading section h2 {
+    font-size: 30px;
+}
+
+.loading h2 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.loading h5 {
+    text-align: center
+}
+
+.reset-btn {
+    background: linear-gradient(144deg, #a855f7, #5b42f3 50%, #00ddeb);
+    letter-spacing: 1px;
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.center {
+    /* border: 1px solid white; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.🤚 {
+    --skin-color: #E4C560;
+    --tap-speed: 0.6s;
+    --tap-stagger: 0.1s;
+    position: relative;
+    width: 80px;
+    height: 60px;
+    margin-left: 80px;
+}
+
+.🤚:before {
+    content: '';
+    display: block;
+    width: 180%;
+    height: 75%;
+    position: absolute;
+    top: 70%;
+    right: 20%;
+    background-color: black;
+    border-radius: 40px 10px;
+    filter: blur(10px);
+    opacity: 0.3;
+}
+
+.🌴 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--skin-color);
+    border-radius: 10px 40px;
+}
+
+.👍 {
+    position: absolute;
+    width: 120%;
+    height: 38px;
+    background-color: var(--skin-color);
+    bottom: -18%;
+    right: 1%;
+    transform-origin: calc(100% - 20px) 20px;
+    transform: rotate(-20deg);
+    border-radius: 30px 20px 20px 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    border-left: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.👍:after {
+    width: 20%;
+    height: 60%;
+    content: '';
+    background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    bottom: -8%;
+    left: 5px;
+    border-radius: 60% 10% 10% 30%;
+    border-right: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+.👉 {
+    position: absolute;
+    width: 80%;
+    height: 35px;
+    background-color: var(--skin-color);
+    bottom: 32%;
+    right: 64%;
+    transform-origin: 100% 20px;
+    animation-duration: calc(var(--tap-speed) * 2);
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transform: rotate(10deg);
+}
+
+.👉:before {
+    content: '';
+    position: absolute;
+    width: 140%;
+    height: 30px;
+    background-color: var(--skin-color);
+    bottom: 8%;
+    right: 65%;
+    transform-origin: calc(100% - 20px) 20px;
+    transform: rotate(-60deg);
+    border-radius: 20px;
+}
+
+.👉:nth-child(1) {
+    animation-delay: 0;
+    filter: brightness(70%);
+    animation-name: tap-upper-1;
+}
+
+.👉:nth-child(2) {
+    animation-delay: var(--tap-stagger);
+    filter: brightness(80%);
+    animation-name: tap-upper-2;
+}
+
+.👉:nth-child(3) {
+    animation-delay: calc(var(--tap-stagger) * 2);
+    filter: brightness(90%);
+    animation-name: tap-upper-3;
+}
+
+.👉:nth-child(4) {
+    animation-delay: calc(var(--tap-stagger) * 3);
+    filter: brightness(100%);
+    animation-name: tap-upper-4;
+}
+
+@keyframes tap-upper-1 {
+
+    0%,
+    50%,
+    100% {
+        transform: rotate(10deg) scale(0.4);
+    }
+
+    40% {
+        transform: rotate(50deg) scale(0.4);
+    }
+}
+
+@keyframes tap-upper-2 {
+
+    0%,
+    50%,
+    100% {
+        transform: rotate(10deg) scale(0.6);
+    }
+
+    40% {
+        transform: rotate(50deg) scale(0.6);
+    }
+}
+
+@keyframes tap-upper-3 {
+
+    0%,
+    50%,
+    100% {
+        transform: rotate(10deg) scale(0.8);
+    }
+
+    40% {
+        transform: rotate(50deg) scale(0.8);
+    }
+}
+
+@keyframes tap-upper-4 {
+
+    0%,
+    50%,
+    100% {
+        transform: rotate(10deg) scale(1);
+    }
+
+    40% {
+        transform: rotate(50deg) scale(1);
+    }
+}
+
+
 @media only screen and (max-width:700px) {
     .input {
         width: 95%;
@@ -161,9 +393,14 @@
 
     .form-actions button {
         margin-left: 10px;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9rem;
     }
 
-    .input h2{
+    .input h2 {
         font-size: 20px;
     }
 }
@@ -171,7 +408,76 @@
 
 
 <script>
+
+import { reactive, onMounted } from 'vue';
+import 'animate.css'
+
 export default {
-    name: 'app'
+    name: 'app',
+    setup() {
+        const state = reactive({
+            isName: null,
+            warning: false,
+            showKhodam: false,
+            loading: false,
+            loadingText: null,
+            listKhodam: [
+                'Sayur Sop', 'Elang Jawa', 'Gagang Pintu', 'Kucing Pusaka', 'Bantal Guling',
+                'Piring Terbang', 'Kecap Manis', 'Helm Kebalik', 'Sapu Lidi', 'Kue Cubit',
+                'Telur Dadar', 'Es Cendol', 'Lemari Kaca', 'Jam Dinding', 'Karet Gelang',
+                'Kaleng Biskuit', 'Roti Bakar', 'Naga Emas', 'Burung Phoenix', 'Bayangan Hitam',
+                'Serigala Malam', 'Elang Perkasa', 'Harimau Putih', 'Raja Hutan', 'Mata Petir',
+                'Singa Hitam', 'Ratu Ombak', 'Ksatria Baja', 'Angin Selatan', 'Api Biru',
+                'Batu Karang', 'Ombak Merah', 'Kuda Terbang', 'Pelangi Senja', 'Bintang Timur',
+                'Lautan Tenang', 'Kabut Gunung', 'Lembah Hijau', 'Padang Pasir', 'Bulan Sabit',
+                'Badai Pasir', 'Petir Ungu', 'Gunung Es', 'Api Unggun', 'Awan Hitam',
+                'Naga Langit', 'Serigala Putih', 'Harimau Merah', 'Elang Emas', 'Singa Laut',
+                'Ombak Biru', 'Petir Merah', 'Pohon Raksasa', 'Badai Petir', 'Awan Merah',
+                'Lautan Dalam', 'Gunung Merapi', 'Gagang pintu'
+            ],
+            currentKhodam: null,
+        })
+
+        function getKhodam(id) {
+            let index = Math.floor(Math.random() * id)
+            state.currentKhodam = `✨ ${state.listKhodam[index]} ✨`
+            console.log(state.currentKhodam)
+        }
+
+        function submit() {
+            if (state.isName == null) {
+                state.warning = true
+                state.isName = null
+                console.log('Nama masih kosong')
+            } else {
+                state.showKhodam = true
+                state.loading = true
+                state.warning = false
+                state.loadingText = "Hmm Sebentar..."
+                setTimeout(() => {
+                    state.loadingText = "Khodam kamu adalah..."
+                    setTimeout(() => {
+                        getKhodam(state.listKhodam.length)
+                        state.loading = false
+                        state.loadingText = null
+                    }, 2000);
+                }, 2000);
+            }
+        }
+
+        function reset(){
+            state.showKhodam = false
+            state.isName = null
+        }
+
+        onMounted(() => {
+            console.log(state.listKhodam.length)
+        })
+        return {
+            state,
+            reset,
+            submit
+        }
+    }
 }
 </script>
