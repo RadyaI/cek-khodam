@@ -433,7 +433,8 @@ export default {
                 'Badai Pasir', 'Petir Ungu', 'Gunung Es', 'Api Unggun', 'Awan Hitam',
                 'Naga Hitam', 'Serigala Putih', 'Harimau Merah', 'Elang Emas', 'Singa Laut',
                 'Ombak Biru', 'Petir Merah', 'Pohon Raksasa', 'Badai Petir', 'Awan Merah',
-                'Lautan Dalam', 'Gunung Merapi', 'Gagang Pintu', 'Pecel Lele'
+                'Lautan Dalam', 'Gunung Merapi', 'Gagang Pintu', 'Pecel Lele', 'Vespa',' Mie Ayam',
+                'Kera Hitam', 'Es Buah'
             ],
             currentKhodam: null,
         })
