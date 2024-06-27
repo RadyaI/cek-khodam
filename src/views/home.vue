@@ -85,7 +85,8 @@
 }
 
 .input {
-    max-width: 28rem;
+    /* max-width: 28rem; */
+    width: fit-content;
     margin: 60px auto;
     position: relative;
     overflow: hidden;
@@ -96,7 +97,7 @@
     backdrop-filter: blur(11.3px);
     -webkit-backdrop-filter: blur(11.3px);
     border: 1px solid rgba(53, 53, 53, 1);
-    padding: 2rem;
+    padding: 35px 50px;
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
@@ -165,7 +166,7 @@
     background: linear-gradient(144deg, #a855f7, #5b42f3 50%, #00ddeb);
     color: white;
     padding: 0.5rem 3rem;
-    margin-right: 15px;
+    margin-left: 15px;
     font-weight: bold;
     font-size: 10px;
     border-radius: 0.375rem;
