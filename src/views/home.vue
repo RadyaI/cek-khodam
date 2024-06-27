@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <!-- Header -->
         <div class="header">
             <h1>Cek Khodam rorrr</h1>
@@ -29,7 +30,7 @@
 .header {
     min-height: 150px;
     text-align: center;
-    border: 1px solid;
+    /* border: 1px solid; */
 
 }
 
@@ -60,7 +61,7 @@
 
 .input {
     max-width: 28rem;
-    margin: 0 auto;
+    margin: 60px auto;
     position: relative;
     overflow: hidden;
     z-index: 10;
@@ -109,6 +110,7 @@
 
 .wrap {
     display: flex;
+    justify-content: space-between;
 }
 
 .form-group {
@@ -117,7 +119,6 @@
 
 .form-group input,
 .form-group textarea {
-    margin-top: 0.25rem;
     padding: 0.5rem;
     width: 100%;
     border: 1px solid #d1d5db;
@@ -129,11 +130,18 @@
     justify-content: flex-end;
 }
 
+.form-group input {
+    color: #000;
+    height: 40px;
+}
+
 .form-actions button {
-    background: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+    height: 40px;
+    background: linear-gradient(144deg, #a855f7, #5b42f3 50%, #00ddeb);
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 3rem;
     font-weight: bold;
+    font-size: 10px;
     border-radius: 0.375rem;
     border: none;
     cursor: pointer;
