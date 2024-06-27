@@ -131,12 +131,12 @@
 .form-group input,
 .form-group textarea {
     margin-top: 0.25rem;
-    padding: 0.5rem;
+    padding: 0.5rem; 
     width: 100%;
     border: 1px solid #d1d5db;
     border-radius: 0.375rem;
-}
-
+} 
+ 
 .form-actions {
     display: flex;
     justify-content: flex-end;
