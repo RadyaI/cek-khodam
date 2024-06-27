@@ -40,7 +40,8 @@
                     <h5 v-if="!state.loading && state.showKhodam">Khodam {{ state.isName }} adalah...</h5> <br>
                     <h2 v-if="!state.loading && state.showKhodam"> {{ state.currentKhodam }} </h2>
                     <div class="center">
-                        <button v-if="!state.loading && state.showKhodam" class="reset-btn" @click="reset">Cari nama lain</button>
+                        <button v-if="!state.loading && state.showKhodam" class="reset-btn" @click="reset">Cari nama
+                            lain</button>
                     </div>
                 </div>
             </section>
@@ -426,14 +427,13 @@ export default {
                 'Piring Terbang', 'Kecap Manis', 'Helm Kebalik', 'Sapu Lidi', 'Kue Cubit',
                 'Telur Dadar', 'Es Cendol', 'Lemari Kaca', 'Jam Dinding', 'Karet Gelang',
                 'Kaleng Biskuit', 'Roti Bakar', 'Naga Emas', 'Burung Phoenix', 'Bayangan Hitam',
-                'Serigala Malam', 'Elang Perkasa', 'Harimau Putih', 'Raja Hutan', 'Mata Petir',
+                'Serigala Malam', 'Elang Jawa', 'Harimau Putih', 'Raja Hutan', 'Mata Petir',
                 'Singa Hitam', 'Ratu Ombak', 'Ksatria Baja', 'Angin Selatan', 'Api Biru',
-                'Batu Karang', 'Ombak Merah', 'Kuda Terbang', 'Pelangi Senja', 'Bintang Timur',
-                'Lautan Tenang', 'Kabut Gunung', 'Lembah Hijau', 'Padang Pasir', 'Bulan Sabit',
+                'Batu Karang', 'Ombak Merah', 'Kuda Terbang', 'Kabut Gunung', 'Lembah Hijau', 'Padang Pasir', 'Bulan Sabit',
                 'Badai Pasir', 'Petir Ungu', 'Gunung Es', 'Api Unggun', 'Awan Hitam',
-                'Naga Langit', 'Serigala Putih', 'Harimau Merah', 'Elang Emas', 'Singa Laut',
+                'Naga Hitam', 'Serigala Putih', 'Harimau Merah', 'Elang Emas', 'Singa Laut',
                 'Ombak Biru', 'Petir Merah', 'Pohon Raksasa', 'Badai Petir', 'Awan Merah',
-                'Lautan Dalam', 'Gunung Merapi', 'Gagang pintu'
+                'Lautan Dalam', 'Gunung Merapi', 'Gagang Pintu', 'Pecel Lele'
             ],
             currentKhodam: null,
         })
@@ -465,7 +465,7 @@ export default {
             }
         }
 
-        function reset(){
+        function reset() {
             state.showKhodam = false
             state.isName = null
         }
